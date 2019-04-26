@@ -6,7 +6,7 @@
 # BSD 3-Clause license. See the accompanying LICENSE file for details.
 #
 #===============================================================================
-set(CMAKE_BUILD_TYPE DEBUG)
+
 set(TEST_TARGET_NAME test_UKF_nonlinear)
 
 set(${TEST_TARGET_NAME}_SRC

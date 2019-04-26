@@ -81,7 +81,7 @@ int main()
     /* Step 2.1 - Define the state model */
     /* Initialize a white noise acceleration state model. */
     double T = 1.0f;
-    double tilde_q = 10.0f;
+    double tilde_q = 1.0f;
 
     std::unique_ptr<StateModel> wna = utils::make_unique<NonLinearScalarModel>(T, tilde_q);
 
@@ -99,7 +99,7 @@ int main()
     simulated_state_model->enable_log(".", "testSIS");
 
     /* Initialize a measurement model (a linear sensor reading x and y coordinates). */
-    std::unique_ptr<MeasurementModel> simulated_linear_sensor = utils::make_unique<SimulatedLinearSensor>(std::move(simulated_state_model));
+    std::unique_ptr<MeasurementModel> simulated_linear_sensor = utils::make_unique<SimulatedLinearSensor>(std::move(simulated_state_model),1,1);
     simulated_linear_sensor->enable_log(".", "testSIS");
 
 

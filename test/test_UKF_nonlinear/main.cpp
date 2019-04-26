@@ -96,7 +96,7 @@ int main()
 
     /* Initialize a white noise acceleration state model. */
     double T = 1.0f;
-    double tilde_q = 10.0f;
+    double tilde_q = 1.0f;
 
     std::unique_ptr<AdditiveStateModel> wna = utils::make_unique<NonLinearScalarModel>(T, tilde_q);
 
@@ -116,7 +116,7 @@ int main()
     simulated_state_model->enable_log(".", "testUKF");
 
     /* Step 3.2 - Initialize a measurement model (a linear sensor reading x and y coordinates). */
-    std::unique_ptr<AdditiveMeasurementModel> simulated_linear_sensor = utils::make_unique<SimulatedLinearSensor>(std::move(simulated_state_model));
+    std::unique_ptr<AdditiveMeasurementModel> simulated_linear_sensor = utils::make_unique<SimulatedLinearSensor>(std::move(simulated_state_model),1,1);
     simulated_linear_sensor->enable_log(".", "testUKF");
 
     /* Step 3.3 - Initialize the unscented Kalman filter correction step and pass the ownership of the measurement model. */
