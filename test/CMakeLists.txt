@@ -13,6 +13,7 @@ include_directories("/media/data/bayes-filters-lib/src/BayesFilters/include"
     "/usr/include/eigen3")
 link_directories("/media/data/bayes-filters-lib/build/lib/")
 
+add_subdirectory(test_ceres)
 add_subdirectory(test_DirectionalStatisticsUtils)
 add_subdirectory(test_Gaussian)
 add_subdirectory(test_SigmaPointUtils)
