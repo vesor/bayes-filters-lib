@@ -27,15 +27,14 @@ LinearModel::LinearModel
     sigma_y_(sigma_y),
     gauss_rnd_sample_([&] { return (distribution_)(generator_); })
 {
-    H_.resize(2, 4);
-    H_ << 1.0, 0.0, 0.0, 0.0,
-          0.0, 0.0, 1.0, 0.0;
+    H_.resize(1, 1);
+    H_ << 1.0;
 
-    R_ << std::pow(sigma_x_, 2.0),                     0.0,
-                              0.0, std::pow(sigma_y_, 2.0);
+    R_.resize(1, 1);
+    R_ << std::pow(sigma_x, 2.0);
 
-    sqrt_R_ << sigma_x_,      0.0,
-                    0.0, sigma_y_;
+    sqrt_R_.resize(1, 1);
+    sqrt_R_ << sigma_x_;
 }
 
 
@@ -139,7 +138,7 @@ LinearModel& LinearModel::operator=(LinearModel&& lin_sense) noexcept
 
 std::pair<bool, MatrixXd> LinearModel::getNoiseSample(const int num) const
 {
-    MatrixXd rand_vectors(2, num);
+    MatrixXd rand_vectors(1, num);
     for (int i = 0; i < rand_vectors.size(); i++)
         *(rand_vectors.data() + i) = gauss_rnd_sample_();
 

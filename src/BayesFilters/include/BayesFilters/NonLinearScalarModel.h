@@ -46,6 +46,11 @@ private:
 
 protected:
     /**
+     * Iteration index.
+     */
+    std::size_t k_ = 0;
+
+    /**
      * Sampling interval in [time].
      */
     double T_;

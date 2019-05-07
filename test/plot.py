@@ -87,11 +87,11 @@ fig, ax = plt.subplots()
 
 target_data0, corrected_data = read_data('UKF')
 plot_target(target_data0, ax)
-plot_corrected(corrected_data, ax, [0.7,0.7,0.7])
+plot_corrected(corrected_data, ax, 'red')
 
 target_data, corrected_data = read_data('SIS')
-assert compare_data(target_data0, target_data) #same target
-plot_corrected(corrected_data, ax, [0.5,0.5,0.5])
+#assert compare_data(target_data0, target_data) #same target
+plot_corrected(corrected_data, ax, 'green')
 
 # set a title and labels
 ax.set_title('Dataset')

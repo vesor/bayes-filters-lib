@@ -69,7 +69,7 @@ protected:
      * y-axis measurement noise std deviation in [length].
      */
     double sigma_y_;
-
+    
     /**
      * Measurement matrix.
      */
@@ -78,12 +78,12 @@ protected:
     /**
      * Convariance matrix of the additive white noise of the measurements.
      */
-    Eigen::Matrix2d R_;
+    Eigen::MatrixXd R_;
 
     /**
      * Square root matrix of R_.
      */
-    Eigen::Matrix2d sqrt_R_;
+    Eigen::MatrixXd sqrt_R_;
 
     /**
      * Random number generator function from a Normal distribution.
